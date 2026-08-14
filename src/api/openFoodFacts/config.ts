@@ -1,4 +1,4 @@
-export const APP_USER_AGENT = 'FolicAlert/0.1 (accounts@pharanyx.co.uk)'
+export const APP_USER_AGENT = 'FolicCheck/0.1 (accounts@pharanyx.co.uk)'
 
 export const PRODUCT_API_BASE = 'https://world.openfoodfacts.org/api/v3'
 export const SEARCH_API_BASE = 'https://world.openfoodfacts.org/cgi/search.pl'

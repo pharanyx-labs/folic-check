@@ -17,7 +17,7 @@ function getSystemTheme(): 'light' | 'dark' {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [preference, setPreference] = useLocalStorage<ThemePreference>('folic-alert:theme', 'system')
+  const [preference, setPreference] = useLocalStorage<ThemePreference>('folic-check:theme', 'system')
   const resolvedTheme = preference === 'system' ? getSystemTheme() : preference
 
   useEffect(() => {

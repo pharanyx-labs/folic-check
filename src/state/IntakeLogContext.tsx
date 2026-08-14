@@ -12,7 +12,7 @@ interface IntakeLogContextValue {
 const IntakeLogContext = createContext<IntakeLogContextValue | null>(null)
 
 export function IntakeLogProvider({ children }: { children: ReactNode }) {
-  const [entries, setEntries] = useLocalStorage<IntakeLogEntry[]>('folic-alert:intake-log', [])
+  const [entries, setEntries] = useLocalStorage<IntakeLogEntry[]>('folic-check:intake-log', [])
 
   const value = useMemo<IntakeLogContextValue>(
     () => ({

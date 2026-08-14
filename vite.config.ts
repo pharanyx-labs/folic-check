@@ -14,8 +14,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'Folic-Alert — UK Folic Acid Fortification Checker',
-        short_name: 'Folic-Alert',
+        name: 'FolicCheck — UK Folic Acid Fortification Checker',
+        short_name: 'FolicCheck',
         description:
           'Check whether a UK food product likely contains added folic acid under the new mandatory fortification rules.',
         theme_color: '#0f766e',

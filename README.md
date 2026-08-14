@@ -1,4 +1,4 @@
-# Folic-Alert
+# FolicCheck
 
 A mobile-first web app for checking whether a UK food product likely contains added folic acid under the new
 mandatory fortification rules (full compliance 13 Dec 2026). Search by product name or barcode, get an

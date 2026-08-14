@@ -61,7 +61,7 @@ export function ProductReportCard({ product }: { product: OFFProduct }) {
               className="no-print"
               onClick={() =>
                 window.open(
-                  `mailto:accounts@pharanyx.co.uk?subject=${encodeURIComponent(`Folic-Alert report issue: ${product.code}`)}`,
+                  `mailto:accounts@pharanyx.co.uk?subject=${encodeURIComponent(`FolicCheck report issue: ${product.code}`)}`,
                   '_blank',
                 )
               }

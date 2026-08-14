@@ -7,7 +7,7 @@ interface ProfileState {
   activeProfileId: string
 }
 
-const STORAGE_KEY = 'folic-alert:profiles'
+const STORAGE_KEY = 'folic-check:profiles'
 
 function createId(): string {
   if (typeof crypto !== 'undefined' && 'randomUUID' in crypto) return crypto.randomUUID()

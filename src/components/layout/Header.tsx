@@ -12,7 +12,7 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
           <WheatMark />
-          <span className="font-display text-lg font-semibold tracking-tight text-ink">Folic-Alert</span>
+          <span className="font-display text-lg font-semibold tracking-tight text-ink">FolicCheck</span>
         </Link>
 
         <div className="flex items-center gap-3">

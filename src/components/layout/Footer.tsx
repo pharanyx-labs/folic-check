@@ -14,7 +14,7 @@ export function Footer() {
       <div className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-3">
           <div>
-            <p className="font-display text-sm font-semibold uppercase tracking-wide text-ink">Folic-Alert</p>
+            <p className="font-display text-sm font-semibold uppercase tracking-wide text-ink">FolicCheck</p>
             <p className="mt-2 text-sm leading-relaxed text-ink-muted">
               An independent, evidence-based tool for checking UK products against the mandatory folic acid
               fortification rules. Not affiliated with GOV.UK, the FSA, or Open Food Facts.
