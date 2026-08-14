@@ -31,7 +31,7 @@ export function ProductReportPage() {
           We couldn&apos;t find barcode {code} on Open Food Facts yet. You can{' '}
           <a
             className="text-brand hover:underline"
-            href={`https://world.openfoodfacts.org/cgi/product.pl?type=add&code=${code}`}
+            href={`https://world.openfoodfacts.org/cgi/product.pl?type=add&code=${encodeURIComponent(code ?? '')}`}
             target="_blank"
             rel="noreferrer"
           >
