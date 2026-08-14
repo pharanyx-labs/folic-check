@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+
 # Local Claude Code session state
 .claude/
 
