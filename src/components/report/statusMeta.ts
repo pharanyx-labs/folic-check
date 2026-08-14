@@ -6,8 +6,6 @@ export interface StatusMeta {
   description: string
   badgeClass: string
   dotClass: string
-  stampClass: string
-  borderClass: string
   textClass: string
 }
 
@@ -21,8 +19,6 @@ export const STATUS_META: Record<ClassificationStatus, StatusMeta> = {
     description: 'Not expected to contain added folic acid.',
     badgeClass: 'bg-status-safe-bg text-status-safe',
     dotClass: 'bg-status-safe',
-    stampClass: 'border-status-safe text-status-safe',
-    borderClass: 'border-status-safe',
     textClass: 'text-status-safe',
   },
   contains_folic_acid: {
@@ -31,8 +27,6 @@ export const STATUS_META: Record<ClassificationStatus, StatusMeta> = {
     description: 'Ingredients confirm this product has added folic acid.',
     badgeClass: 'bg-status-contains-bg text-status-contains',
     dotClass: 'bg-status-contains',
-    stampClass: 'border-status-contains text-status-contains',
-    borderClass: 'border-status-contains',
     textClass: 'text-status-contains',
   },
   likely_fortified: {
@@ -41,8 +35,6 @@ export const STATUS_META: Record<ClassificationStatus, StatusMeta> = {
     description: 'Non-wholemeal wheat flour present — likely to contain added folic acid under the new UK rules.',
     badgeClass: 'bg-status-likely-bg text-status-likely',
     dotClass: 'bg-status-likely',
-    stampClass: 'border-status-likely text-status-likely',
-    borderClass: 'border-status-likely',
     textClass: 'text-status-likely',
   },
   unknown: {
@@ -51,8 +43,6 @@ export const STATUS_META: Record<ClassificationStatus, StatusMeta> = {
     description: 'Could not determine folic acid status from the available data.',
     badgeClass: 'bg-status-unknown-bg text-status-unknown',
     dotClass: 'bg-status-unknown',
-    stampClass: 'border-status-unknown text-status-unknown',
-    borderClass: 'border-status-unknown',
     textClass: 'text-status-unknown',
   },
   incomplete_data: {
@@ -61,8 +51,6 @@ export const STATUS_META: Record<ClassificationStatus, StatusMeta> = {
     description: 'Not enough ingredient data on file to assess this product.',
     badgeClass: 'bg-status-unknown-bg text-status-unknown',
     dotClass: 'bg-status-unknown',
-    stampClass: 'border-status-unknown text-status-unknown',
-    borderClass: 'border-status-unknown',
     textClass: 'text-status-unknown',
   },
 }
