@@ -1,0 +1,108 @@
+@import 'tailwindcss';
+
+@import '@fontsource/space-grotesk/latin-500.css';
+@import '@fontsource/space-grotesk/latin-600.css';
+@import '@fontsource/space-grotesk/latin-700.css';
+@import '@fontsource/ibm-plex-sans/latin-400.css';
+@import '@fontsource/ibm-plex-sans/latin-500.css';
+@import '@fontsource/ibm-plex-sans/latin-600.css';
+@import '@fontsource/ibm-plex-mono/latin-400.css';
+@import '@fontsource/ibm-plex-mono/latin-500.css';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: 'Space Grotesk', ui-sans-serif, sans-serif;
+  --font-body: 'IBM Plex Sans', ui-sans-serif, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* "Flour-mill ledger" palette — a grey-beige sack-cloth paper, deep wheat-teal
+     brand accent, muted wheat-gold signature, and desaturated UK-traffic-light
+     status colors (functional, not decorative). */
+  --color-paper: #efe9dc;
+  --color-surface: #fffdf8;
+  --color-ink: #23241f;
+  --color-ink-muted: #5a5c53;
+  --color-line: #d9d2bf;
+
+  --color-brand: #1f6f5c;
+  --color-brand-strong: #17594a;
+  --color-gold: #b8862f;
+
+  --color-status-safe: #2f7d4f;
+  --color-status-safe-bg: #e3efe4;
+  --color-status-likely: #b3720c;
+  --color-status-likely-bg: #f6ecd8;
+  --color-status-contains: #a3393c;
+  --color-status-contains-bg: #f4e0df;
+  --color-status-unknown: #63645d;
+  --color-status-unknown-bg: #e9e6da;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+.dark {
+  --color-paper: #1b1c17;
+  --color-surface: #232419;
+  --color-ink: #ece7d8;
+  --color-ink-muted: #a8a698;
+  --color-line: #3a3b30;
+
+  --color-brand: #4bbd9e;
+  --color-brand-strong: #67d4b6;
+  --color-gold: #d9a94a;
+
+  --color-status-safe: #5ec18d;
+  --color-status-safe-bg: #1e3226;
+  --color-status-likely: #e0a83e;
+  --color-status-likely-bg: #362a15;
+  --color-status-contains: #e28787;
+  --color-status-contains-bg: #3a2020;
+  --color-status-unknown: #a2a599;
+  --color-status-unknown-bg: #2c2d25;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+}
