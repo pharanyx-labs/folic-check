@@ -74,6 +74,51 @@ describe('fetchProductByBarcode', () => {
     const result = await fetchProductByBarcode('123456789')
     expect(result.status).toBe('network_error')
   })
+
+  it('sends no custom headers — a non-simple header forces a CORS preflight that Open Food Facts rejects', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse({ product: { code: '123456789' } }))
+    vi.stubGlobal('fetch', fetchMock)
+    await fetchProductByBarcode('123456789')
+    const [, init] = fetchMock.mock.calls[0]
+    expect(init).toBeUndefined()
+  })
+
+  it('retries once on a 5xx and succeeds if the retry returns ok', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(jsonResponse({}, false, 503))
+      .mockResolvedValueOnce(jsonResponse({ product: { code: '123456789' } }))
+    vi.stubGlobal('fetch', fetchMock)
+    const result = await fetchProductByBarcode('123456789')
+    expect(result.status).toBe('ok')
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+  })
+
+  it('does not retry on a 4xx', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse({}, false, 404))
+    vi.stubGlobal('fetch', fetchMock)
+    await fetchProductByBarcode('123456789')
+    expect(fetchMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('retries when fetch() itself rejects (e.g. a browser-level CORS block on an error response missing Access-Control-Allow-Origin) and succeeds if a retry resolves', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockRejectedValueOnce(new TypeError('NetworkError when attempting to fetch resource.'))
+      .mockResolvedValueOnce(jsonResponse({ product: { code: '123456789' } }))
+    vi.stubGlobal('fetch', fetchMock)
+    const result = await fetchProductByBarcode('123456789')
+    expect(result.status).toBe('ok')
+    expect(fetchMock).toHaveBeenCalledTimes(2)
+  })
+
+  it('gives up as network_error after exhausting retries on persistent rejection', async () => {
+    const fetchMock = vi.fn().mockRejectedValue(new TypeError('NetworkError when attempting to fetch resource.'))
+    vi.stubGlobal('fetch', fetchMock)
+    const result = await fetchProductByBarcode('123456789')
+    expect(result.status).toBe('network_error')
+    expect(fetchMock).toHaveBeenCalledTimes(3)
+  })
 })
 
 describe('searchProductsByName', () => {
